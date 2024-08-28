@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spothero.entities.Rate;
 import com.spothero.entities.RatesList;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -56,5 +57,16 @@ public class RatesController {
     @ExceptionHandler({IllegalArgumentException.class})
     public ResponseEntity<String> handleIllegalArgument() {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("unavailable");
+    }
+
+    // Since there's only one relatively trivial controller, handle exceptions thrown with handlers here
+    // instead of creating a ControllerAdvice class
+    @ExceptionHandler({IllegalStateException.class})
+    public ResponseEntity<String> handleBadRequestException() {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Request body is empty");
+    }
+    @ExceptionHandler({EntityNotFoundException.class})
+    public ResponseEntity<String> handleEntityNotFound() {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Rate not found");
     }
 }

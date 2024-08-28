@@ -2,8 +2,8 @@ package com.spothero.entities;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import org.antlr.v4.runtime.misc.NotNull;
 
 import java.io.Serializable;
 import java.time.*;
@@ -20,12 +20,15 @@ public class Rate implements Serializable {
     @Column(name = "days")
     private String days;
 
+    @NotNull
     @Column(nullable = false, name = "times")
     private String times;
 
+    @NotNull
     @Column(nullable = false, name = "timeZone")
     private String tz;
 
+    @NotNull
     @Column(nullable = false, name = "price")
     private int price;
 

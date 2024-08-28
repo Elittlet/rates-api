@@ -20,6 +20,9 @@ public class RatesService {
     }
 
     public List<Rate> saveRates(List<Rate> rates) {
+        if(rates.isEmpty()) {
+            throw new IllegalStateException();
+        }
         ratesRepository.deleteAll();
         return ratesRepository.saveAll(rates);
     }
