@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.format.DateTimeParseException;
 import java.util.*;
 
 @RestController
@@ -68,5 +69,10 @@ public class RatesController {
     @ExceptionHandler({EntityNotFoundException.class})
     public ResponseEntity<String> handleEntityNotFound() {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Rate not found");
+    }
+
+    @ExceptionHandler({DateTimeParseException.class})
+    public ResponseEntity<String> handleInvalidDateTime() {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Date and Time not in proper ISO-8601 format");
     }
 }
