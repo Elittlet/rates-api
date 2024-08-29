@@ -68,18 +68,18 @@ _____
 ## Requirements and how to run
 The application can be unzipped and opened using an IDE (ex. Intellij) of choice and ran within the IDE. The API will start, listening on port 5000 and load the initial data into the H2 memory store database. From there users can use an API testing tool of their choice such as Postman to send requests to the above endpoints.
 
-### Run Using Intellij or Preferred IDE
-**PLEASE NOTE: This application was created using JDK 17, if running in IDE instead of from Dockerfile it is heavily advised to make sure your Java version is Java 17 for the application to run properly.**
-### Example Usage
-  ![Screenshot_2024-08-28_13-18-59](https://github.com/user-attachments/assets/87b0c332-94f9-4ac1-89ff-98809462ea26)
-![Screenshot_2024-08-28_13-19-35](https://github.com/user-attachments/assets/7bc4c7ef-f610-4567-88fc-903e84fb3071)
-_______
 ### Run in Docker container using Dockerfile
 - Install or insure docker is installed.
 - Unzip rates-api source and ```cd /path/to/rates-api```
 - In the root folder ```docker image build -t rates-api .```
 - After the image is built ```docker run -p 5000:5000 rates-api```
 ------
+### Run Using Intellij or Preferred IDE
+**PLEASE NOTE: This application was created using JDK 17, if running in IDE instead of from Dockerfile it is heavily advised to make sure your Java version is Java 17 for the application to run properly.**
+### Example Usage
+  ![Screenshot_2024-08-28_13-18-59](https://github.com/user-attachments/assets/87b0c332-94f9-4ac1-89ff-98809462ea26)
+![Screenshot_2024-08-28_13-19-35](https://github.com/user-attachments/assets/7bc4c7ef-f610-4567-88fc-903e84fb3071)
+_______
 ### Run from the command line
 - Install or ensure Maven is installed: https://maven.apache.org/install.html
 - Unzip rates-api and cd directory to ```/path/to/rates-api```
